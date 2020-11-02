@@ -56,5 +56,16 @@ class Parser:
         return self._eval(self._parse(expr))
 
 parser = Parser()
+args = sys.argv[1:]
 
-print(*[parser.eval(arg) for arg in sys.argv[1:]], sep=', ')
+for arg, i in zip(args, range(len(args))):
+    try:
+        sys.stdout.write(parser.eval(arg))
+    except Exception as err:
+        sys.stdout.write('Error -', err)
+    finally:
+        if i + 1 == len(args):
+            break
+        sys.stdout.write(', ')
+
+sys.stdout.write('\n')

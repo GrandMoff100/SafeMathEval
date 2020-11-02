@@ -1,1 +1,8 @@
 evalsafe
+*.pyc
+
+.idea/
+.vscode/
+venv/
+
+.replit
